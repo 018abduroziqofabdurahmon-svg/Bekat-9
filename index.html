@@ -60,106 +60,39 @@
     <div class="train-livery-stripe" id="trainLiveryStripe"></div>
   </nav>
 
+  <section class="metro-arrival-hero" id="arrivalHero">
+    <video class="hero-bg-video" autoplay muted loop playsinline src="assets/metro-hero.mp4">
+      <source src="assets/metro-hero.mp4" type="video/mp4">
+      <source src="train.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
+
+    <div class="hero-arrival-content">
+      <div class="hero-arrival-badge">
+        <span class="pulse-beacon"></span>Tashkent Metro Network &bull; Active Transit
+      </div>
+      <h1 class="hero-arrival-title">BEKAT-9 — Toshkent Metro</h1>
+      <p class="hero-arrival-subtitle">
+        Real-time station directory, bus connections, transfer hubs, and ATTO fare calculator.
+      </p>
+      <div class="hero-arrival-actions">
+        <button type="button" class="arrival-btn primary" id="heroExploreBtn">
+          <i class="fa-solid fa-compass me-2"></i>Explore Stations
+        </button>
+        <button type="button" class="arrival-btn secondary" id="heroFareBtn">
+          <i class="fa-solid fa-calculator me-2"></i>Calculate Fare
+        </button>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator" id="heroScrollIndicator">
+      <span>Scroll to explore</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+  </section>
+
   <div class="app-wrapper py-4">
     <div class="container-xl">
-
-      <div class="platform-sign-hero-wrapper mb-4" data-aos="fade-down">
-        <div class="sign-bracket bracket-left"></div>
-        <div class="sign-bracket bracket-right"></div>
-
-        <div class="platform-signboard">
-          <div class="row align-items-center g-4">
-            <div class="col-12 col-lg-6">
-              <div class="platform-sign-badge mb-2">
-                <span class="color-dot dot-all"></span>Tashkent Metro Station Platform
-              </div>
-              <h1 class="platform-sign-title">Tashkent Metro &amp; Transit</h1>
-              <p class="platform-sign-subtitle">
-                Check stations, bus connections, transfer hubs, and ATTO fares.
-              </p>
-              <div class="d-flex flex-wrap gap-2 pt-1">
-                <button type="button" class="hero-tactile-btn primary-btn" id="heroSearchBtn">
-                  <i class="fa-solid fa-magnifying-glass me-1"></i>Search Stations
-                </button>
-                <button type="button" class="hero-tactile-btn secondary-btn" id="heroCalcBtn">
-                  <i class="fa-solid fa-calculator me-1"></i>ATTO Calculator
-                </button>
-              </div>
-            </div>
-
-            <div class="col-12 col-lg-6">
-              <div class="route-strip-board">
-                <div class="d-flex justify-content-between align-items-center mb-2">
-                  <span class="route-strip-label">
-                    <i class="fa-solid fa-train-subway me-1 text-info"></i>Live In-Car Line Map
-                  </span>
-                  <span class="transit-info-pill">
-                    05:00 – 00:00 &bull; 2,000 UZS
-                  </span>
-                </div>
-
-                <div class="metro-led-tracks">
-                  <div class="led-track-row track-chl">
-                    <span class="track-tag">CHL</span>
-                    <div class="track-line-wrapper">
-                      <div class="track-rail rail-chl"></div>
-                      <div class="station-node-dot" title="Buyuk Ipak Yo'li"></div>
-                      <div class="station-node-dot" title="Amir Temur"></div>
-                      <div class="station-node-dot active-train" title="Paxtakor">
-                        <div class="train-moving-beacon"></div>
-                      </div>
-                      <div class="station-node-dot" title="Chilonzor"></div>
-                      <div class="station-node-dot" title="Qipchoq"></div>
-                    </div>
-                  </div>
-
-                  <div class="led-track-row track-uzb">
-                    <span class="track-tag">UZB</span>
-                    <div class="track-line-wrapper">
-                      <div class="track-rail rail-uzb"></div>
-                      <div class="station-node-dot" title="Beruniy"></div>
-                      <div class="station-node-dot" title="Chorsu"></div>
-                      <div class="station-node-dot" title="Alisher Navoiy"></div>
-                      <div class="station-node-dot active-train" title="Oybek">
-                        <div class="train-moving-beacon"></div>
-                      </div>
-                      <div class="station-node-dot" title="Do'stlik"></div>
-                    </div>
-                  </div>
-
-                  <div class="led-track-row track-yun">
-                    <span class="track-tag">YUN</span>
-                    <div class="track-line-wrapper">
-                      <div class="track-rail rail-yun"></div>
-                      <div class="station-node-dot" title="Turkiston"></div>
-                      <div class="station-node-dot active-train" title="Bodomzor">
-                        <div class="train-moving-beacon"></div>
-                      </div>
-                      <div class="station-node-dot" title="Minor"></div>
-                      <div class="station-node-dot" title="Yunus Rajabiy"></div>
-                      <div class="station-node-dot" title="Ming O'rik"></div>
-                    </div>
-                  </div>
-
-                  <div class="led-track-row track-hlq">
-                    <span class="track-tag">HLQ</span>
-                    <div class="track-line-wrapper">
-                      <div class="track-rail rail-hlq"></div>
-                      <div class="station-node-dot" title="Texnopark"></div>
-                      <div class="station-node-dot" title="Rohat"></div>
-                      <div class="station-node-dot active-train" title="Qo'yliq">
-                        <div class="train-moving-beacon"></div>
-                      </div>
-                      <div class="station-node-dot" title="Quruvchilar"></div>
-                      <div class="station-node-dot" title="Qipchoq"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div class="line-filter-bar" data-aos="fade-up">
         <button type="button" class="line-filter-btn active" data-line="all">

@@ -334,9 +334,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const heroSearchBtn = document.getElementById("heroSearchBtn");
-  if (heroSearchBtn) {
-    heroSearchBtn.addEventListener("click", () => {
+  const heroExploreBtn = document.getElementById("heroExploreBtn");
+  if (heroExploreBtn) {
+    heroExploreBtn.addEventListener("click", () => {
       const searchInput = document.getElementById("stationSearchInput");
       if (searchInput) {
         searchInput.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -345,12 +345,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  const heroCalcBtn = document.getElementById("heroCalcBtn");
-  if (heroCalcBtn) {
-    heroCalcBtn.addEventListener("click", () => {
+  const heroFareBtn = document.getElementById("heroFareBtn");
+  if (heroFareBtn) {
+    heroFareBtn.addEventListener("click", () => {
       const fareBox = document.getElementById("fareTypeSelect");
       if (fareBox) {
         fareBox.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    });
+  }
+
+  const heroScrollIndicator = document.getElementById("heroScrollIndicator");
+  if (heroScrollIndicator) {
+    heroScrollIndicator.addEventListener("click", () => {
+      const filterBar = document.querySelector(".line-filter-bar");
+      if (filterBar) {
+        filterBar.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     });
   }
