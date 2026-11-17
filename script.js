@@ -245,13 +245,20 @@ document.addEventListener("DOMContentLoaded", () => {
   renderStations();
   updateFareDisplay();
 
-  const contrastToggle = document.getElementById("contrastModeToggle");
-  if (contrastToggle) {
-    contrastToggle.addEventListener("change", (e) => {
+  const themeToggle = document.getElementById("themeModeToggle");
+  if (themeToggle) {
+    const savedTheme = localStorage.getItem("bekat9_theme");
+    if (savedTheme === "light") {
+      themeToggle.checked = true;
+      document.body.classList.add("light-mode");
+    }
+    themeToggle.addEventListener("change", (e) => {
       if (e.target.checked) {
-        document.body.classList.add("high-contrast");
+        document.body.classList.add("light-mode");
+        localStorage.setItem("bekat9_theme", "light");
       } else {
-        document.body.classList.remove("high-contrast");
+        document.body.classList.remove("light-mode");
+        localStorage.setItem("bekat9_theme", "dark");
       }
     });
   }

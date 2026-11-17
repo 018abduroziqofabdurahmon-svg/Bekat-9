@@ -15,7 +15,7 @@ A responsive, single-page web application and interactive guide for the **Tashke
 ### 1. Modern Metro Train Cabin Navbar
 - Styled after the aerodynamic front cabin and windshield of a modern Tashkent Metro train.
 - **Dynamic Livery Accent Stripe**: Dynamically transitions its glowing color (Red, Blue, Green, Yellow, or Cyan) based on the currently selected metro line.
-- **Integrated Cockpit Controls**: Includes glowing LED headlights, a live digital Tashkent time clock (`Asia/Tashkent`), and a high-contrast toggle.
+- **Integrated Cockpit Controls**: Includes glowing LED headlights, a live digital Tashkent time clock (`Asia/Tashkent`), and a light mode toggle.
 
 ### 2. Full-Screen Cinematic Video Hero
 - Immersive `100vh` full-screen video background (`assets/metro-hero.mp4`) with a dark gradient overlay.

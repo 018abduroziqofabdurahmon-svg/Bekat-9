@@ -17,14 +17,14 @@
   --accent-cyan: #38bdf8;
 }
 
-body.high-contrast {
-  --bg-color: #000000;
-  --panel-bg: #09090b;
-  --panel-border: #ffffff;
-  --panel-hover-border: #ffffff;
-  --text-primary: #ffffff;
-  --text-secondary: #f4f4f5;
-  --text-muted: #e4e4e7;
+body.light-mode {
+  --bg-color: #f1f5f9;
+  --panel-bg: rgba(255, 255, 255, 0.88);
+  --panel-border: rgba(0, 0, 0, 0.08);
+  --panel-hover-border: rgba(14, 165, 233, 0.45);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
 }
 
 * {
@@ -190,7 +190,7 @@ html, body {
   gap: 6px;
 }
 
-.contrast-switch-group {
+.theme-switch-group {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1071,4 +1071,350 @@ html, body {
   .glass-card {
     padding: 16px;
   }
+}
+
+body.light-mode .terminal-ambient-bg {
+  background-image: radial-gradient(circle at 50% 0%, rgba(14, 165, 233, 0.12) 0%, transparent 60%);
+}
+
+body.light-mode #particles-js {
+  opacity: 0.4;
+}
+
+body.light-mode .metro-train-navbar {
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 85%, #e2e8f0 100%);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .train-headlight-housing {
+  background: #e2e8f0;
+  border-color: #cbd5e1;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .train-windshield-banner {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9), 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .train-brand {
+  color: #0f172a;
+}
+
+body.light-mode .train-brand-icon {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0284c7;
+}
+
+body.light-mode .train-brand-sub {
+  color: #64748b;
+}
+
+body.light-mode .train-clock-pill {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #0284c7;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .theme-switch-group {
+  color: #334155;
+}
+
+body.light-mode .clean-toggle .toggle-track {
+  background-color: #cbd5e1;
+  border-color: #94a3b8;
+}
+
+body.light-mode .clean-toggle input:checked + .toggle-track {
+  background-color: #0284c7;
+  border-color: #0284c7;
+}
+
+body.light-mode .clean-toggle .toggle-track::before {
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+body.light-mode .line-filter-btn {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #0f172a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .line-filter-btn:hover {
+  background: #ffffff;
+  border-color: rgba(14, 165, 233, 0.45);
+  transform: translateY(-1px);
+}
+
+body.light-mode .line-filter-btn.active {
+  background: #0284c7;
+  border-color: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+}
+
+body.light-mode .dot-all {
+  background-color: #475569;
+}
+
+body.light-mode .glass-card {
+  background: var(--panel-bg);
+  border-color: var(--panel-border);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+body.light-mode .glass-card:hover {
+  border-color: var(--panel-hover-border);
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
+}
+
+body.light-mode .section-title {
+  color: #0f172a;
+}
+
+body.light-mode .section-subtitle {
+  color: #64748b;
+}
+
+body.light-mode .search-input {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #0f172a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+body.light-mode .search-input:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 12px rgba(2, 132, 199, 0.2);
+}
+
+body.light-mode .search-input::placeholder {
+  color: #94a3b8;
+}
+
+body.light-mode .search-icon {
+  color: #64748b;
+}
+
+body.light-mode .filter-pill {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #475569;
+}
+
+body.light-mode .filter-pill:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: #0f172a;
+}
+
+body.light-mode .filter-pill.active {
+  background: #0284c7;
+  border-color: #0284c7;
+  color: #ffffff;
+}
+
+body.light-mode .station-item-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+body.light-mode .station-item-card:hover {
+  background: #f8fafc;
+  border-color: rgba(14, 165, 233, 0.4);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .station-name {
+  color: #0f172a;
+}
+
+body.light-mode .station-transfer {
+  color: #0284c7;
+}
+
+body.light-mode .bus-pill {
+  background: #e2e8f0;
+  border-color: #cbd5e1;
+  color: #1e293b;
+}
+
+body.light-mode .bus-pill.express {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  color: #b91c1c;
+}
+
+body.light-mode .fare-calc-box {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+body.light-mode .fare-label {
+  color: #475569;
+}
+
+body.light-mode .fare-select {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+body.light-mode .fare-select:focus {
+  border-color: #0284c7;
+}
+
+body.light-mode .rider-stepper {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+
+body.light-mode .step-btn {
+  background: #e2e8f0;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}
+
+body.light-mode .step-btn:hover {
+  background: #cbd5e1;
+}
+
+body.light-mode .step-val {
+  color: #0f172a;
+}
+
+body.light-mode .total-price-display {
+  background: #ecfdf5;
+  border-color: #6ee7b7;
+}
+
+body.light-mode .total-price-val {
+  color: #059669;
+}
+
+body.light-mode .total-price-desc {
+  color: #475569;
+}
+
+body.light-mode .tap-status-pill {
+  color: #475569;
+}
+
+body.light-mode .tap-status-pill.success {
+  color: #059669;
+}
+
+body.light-mode .metro-line-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .metro-line-card:hover {
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+body.light-mode .line-card-title {
+  color: #0f172a;
+}
+
+body.light-mode .line-station-badge {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #475569;
+}
+
+body.light-mode .line-card-terminals {
+  color: #475569;
+}
+
+body.light-mode .line-stats-row {
+  border-top-color: rgba(0, 0, 0, 0.06);
+  color: #64748b;
+}
+
+body.light-mode .transfer-hub-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .hub-station-badge {
+  color: #0f172a;
+}
+
+body.light-mode .hub-walk-pill {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #475569;
+}
+
+body.light-mode .corridor-card {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.07);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .corridor-icon-badge {
+  background: #f0f9ff;
+  border-color: #bae6fd;
+  color: #0284c7;
+}
+
+body.light-mode .corridor-title {
+  color: #0f172a;
+}
+
+body.light-mode .corridor-desc {
+  color: #475569;
+}
+
+body.light-mode .metro-train-tail-footer {
+  background: linear-gradient(0deg, #ffffff 0%, #f1f5f9 85%, #e2e8f0 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .tail-cabin-chassis .train-brand {
+  color: #0f172a;
+}
+
+body.light-mode .tail-cabin-chassis .train-brand-sub {
+  color: #64748b;
+}
+
+body.light-mode .btn-back-to-top {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #0f172a;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .btn-back-to-top:hover {
+  background: #f1f5f9;
+  border-color: #0284c7;
+}
+
+body.light-mode .clean-footer {
+  border-top-color: rgba(0, 0, 0, 0.06);
+  color: #64748b;
+}
+
+body.light-mode ::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+body.light-mode ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+body.light-mode ::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
