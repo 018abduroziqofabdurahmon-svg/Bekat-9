@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEKAT-9 — Toshkent Metro Guide</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="particles-js"></div>
+  <div class="terminal-ambient-bg"></div>
+
+  <nav class="metro-train-navbar">
+    <div class="train-cabin-chassis container-fluid px-3 px-lg-4">
+      <div class="train-headlight-cluster d-none d-sm-flex">
+        <div class="train-headlight-housing">
+          <div class="train-lens lens-high"></div>
+          <div class="train-lens lens-fog"></div>
+        </div>
+      </div>
+
+      <div class="train-windshield-banner">
+        <a class="train-brand" href="#">
+          <div class="train-brand-icon">
+            <i class="fa-solid fa-train-subway"></i>
+          </div>
+          <div>
+            <div class="train-brand-text">BEKAT-9 — Toshkent Metro</div>
+            <div class="train-brand-sub">Public Transit &amp; Station Guide</div>
+          </div>
+        </a>
+
+        <div class="d-flex align-items-center gap-3">
+          <div class="train-clock-pill" id="digitalClockDisplay">
+            <i class="fa-regular fa-clock me-1"></i>00:00:00 Tashkent
+          </div>
+
+          <div class="contrast-switch-group">
+            <span>High Contrast</span>
+            <label class="clean-toggle">
+              <input type="checkbox" id="contrastModeToggle">
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="train-headlight-cluster d-none d-sm-flex">
+        <div class="train-headlight-housing">
+          <div class="train-lens lens-fog"></div>
+          <div class="train-lens lens-high"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="train-livery-stripe" id="trainLiveryStripe"></div>
+  </nav>
+
+  <div class="app-wrapper py-4">
+    <div class="container-xl">
+
+      <div class="platform-sign-hero-wrapper mb-4" data-aos="fade-down">
+        <div class="sign-bracket bracket-left"></div>
+        <div class="sign-bracket bracket-right"></div>
+
+        <div class="platform-signboard">
+          <div class="row align-items-center g-4">
+            <div class="col-12 col-lg-6">
+              <div class="platform-sign-badge mb-2">
+                <span class="color-dot dot-all"></span>Tashkent Metro Station Platform
+              </div>
+              <h1 class="platform-sign-title">Tashkent Metro &amp; Transit</h1>
+              <p class="platform-sign-subtitle">
+                Check stations, bus connections, transfer hubs, and ATTO fares.
+              </p>
+              <div class="d-flex flex-wrap gap-2 pt-1">
+                <button type="button" class="hero-tactile-btn primary-btn" id="heroSearchBtn">
+                  <i class="fa-solid fa-magnifying-glass me-1"></i>Search Stations
+                </button>
+                <button type="button" class="hero-tactile-btn secondary-btn" id="heroCalcBtn">
+                  <i class="fa-solid fa-calculator me-1"></i>ATTO Calculator
+                </button>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <div class="route-strip-board">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="route-strip-label">
+                    <i class="fa-solid fa-train-subway me-1 text-info"></i>Live In-Car Line Map
+                  </span>
+                  <span class="transit-info-pill">
+                    05:00 – 00:00 &bull; 2,000 UZS
+                  </span>
+                </div>
+
+                <div class="metro-led-tracks">
+                  <div class="led-track-row track-chl">
+                    <span class="track-tag">CHL</span>
+                    <div class="track-line-wrapper">
+                      <div class="track-rail rail-chl"></div>
+                      <div class="station-node-dot" title="Buyuk Ipak Yo'li"></div>
+                      <div class="station-node-dot" title="Amir Temur"></div>
+                      <div class="station-node-dot active-train" title="Paxtakor">
+                        <div class="train-moving-beacon"></div>
+                      </div>
+                      <div class="station-node-dot" title="Chilonzor"></div>
+                      <div class="station-node-dot" title="Qipchoq"></div>
+                    </div>
+                  </div>
+
+                  <div class="led-track-row track-uzb">
+                    <span class="track-tag">UZB</span>
+                    <div class="track-line-wrapper">
+                      <div class="track-rail rail-uzb"></div>
+                      <div class="station-node-dot" title="Beruniy"></div>
+                      <div class="station-node-dot" title="Chorsu"></div>
+                      <div class="station-node-dot" title="Alisher Navoiy"></div>
+                      <div class="station-node-dot active-train" title="Oybek">
+                        <div class="train-moving-beacon"></div>
+                      </div>
+                      <div class="station-node-dot" title="Do'stlik"></div>
+                    </div>
+                  </div>
+
+                  <div class="led-track-row track-yun">
+                    <span class="track-tag">YUN</span>
+                    <div class="track-line-wrapper">
+                      <div class="track-rail rail-yun"></div>
+                      <div class="station-node-dot" title="Turkiston"></div>
+                      <div class="station-node-dot active-train" title="Bodomzor">
+                        <div class="train-moving-beacon"></div>
+                      </div>
+                      <div class="station-node-dot" title="Minor"></div>
+                      <div class="station-node-dot" title="Yunus Rajabiy"></div>
+                      <div class="station-node-dot" title="Ming O'rik"></div>
+                    </div>
+                  </div>
+
+                  <div class="led-track-row track-hlq">
+                    <span class="track-tag">HLQ</span>
+                    <div class="track-line-wrapper">
+                      <div class="track-rail rail-hlq"></div>
+                      <div class="station-node-dot" title="Texnopark"></div>
+                      <div class="station-node-dot" title="Rohat"></div>
+                      <div class="station-node-dot active-train" title="Qo'yliq">
+                        <div class="train-moving-beacon"></div>
+                      </div>
+                      <div class="station-node-dot" title="Quruvchilar"></div>
+                      <div class="station-node-dot" title="Qipchoq"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="line-filter-bar" data-aos="fade-up">
+        <button type="button" class="line-filter-btn active" data-line="all">
+          <span class="color-dot dot-all"></span>All Lines
+        </button>
+        <button type="button" class="line-filter-btn" data-line="chilonzor">
+          <span class="color-dot dot-chl"></span>Chilonzor Line
+        </button>
+        <button type="button" class="line-filter-btn" data-line="ozbekiston">
+          <span class="color-dot dot-uzb"></span>Oʻzbekiston Line
+        </button>
+        <button type="button" class="line-filter-btn" data-line="yunusobod">
+          <span class="color-dot dot-yun"></span>Yunusobod Line
+        </button>
+        <button type="button" class="line-filter-btn" data-line="halqa">
+          <span class="color-dot dot-hlq"></span>Halqa (Circle) Line
+        </button>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-lg-7" data-aos="fade-right">
+          <div class="glass-card h-100">
+            <div class="section-title">Stations &amp; Connecting Buses</div>
+            <div class="section-subtitle">Search metro stations and find matching city bus feeder connections.</div>
+
+            <div class="search-box">
+              <i class="fa-solid fa-magnifying-glass search-icon"></i>
+              <input type="text" id="stationSearchInput" class="search-input" placeholder="Search station or bus route (e.g. Amir Temur, Chorsu, 28)...">
+            </div>
+
+            <div class="quick-filter-pills">
+              <button type="button" class="filter-pill active" data-filter="all">All Stations</button>
+              <button type="button" class="filter-pill" data-filter="transfer">Transfer Hubs</button>
+              <button type="button" class="filter-pill" data-filter="airport">Airport Bus (58)</button>
+              <button type="button" class="filter-pill" data-filter="express">Express Lines</button>
+            </div>
+
+            <div class="stations-list-scroll" id="stationsListContainer"></div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-5" data-aos="fade-left">
+          <div class="glass-card h-100">
+            <div class="section-title">ATTO Fare Calculator</div>
+            <div class="section-subtitle">Official transit fare calculation for Tashkent Metro and buses.</div>
+
+            <div class="fare-calc-box">
+              <div class="fare-label">Passenger Tariff Type</div>
+              <select class="fare-select" id="fareTypeSelect">
+                <option value="2000">Standard Transit Card (2,000 UZS / Ride)</option>
+                <option value="1000">Student &amp; Pupil Privilege (1,000 UZS / Ride)</option>
+                <option value="1000">Pensioner Privilege (1,000 UZS / Ride)</option>
+              </select>
+
+              <div class="fare-label">Number of Passengers</div>
+              <div class="rider-stepper">
+                <button type="button" class="step-btn" id="stepMinusBtn">
+                  <i class="fa-solid fa-minus"></i>
+                </button>
+                <span class="step-val" id="passengerCountDisplay">1</span>
+                <button type="button" class="step-btn" id="stepPlusBtn">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+
+              <div class="total-price-display">
+                <div class="total-price-val" id="totalFareDisplay">2,000 UZS</div>
+                <div class="total-price-desc">Base rate: 2,000 UZS per ride with ATTO or QR ticket</div>
+              </div>
+
+              <button type="button" class="tap-card-btn" id="tapCardBtn">
+                <i class="fa-solid fa-id-card"></i>Tap ATTO Pass
+              </button>
+
+              <div class="tap-status-pill" id="tapStatusPill">
+                Ready to tap card or phone at turnstile
+              </div>
+            </div>
+
+            <div class="p-3 rounded" style="background: rgba(14, 18, 25, 0.5); border: 1px solid rgba(255, 255, 255, 0.06); font-size: 0.8rem; color: var(--text-secondary);">
+              <div class="fw-bold text-white mb-1"><i class="fa-solid fa-circle-info me-1 text-info"></i>Transit Information:</div>
+              <div>Free transfers are provided between all Tashkent Metro lines at interchange stations. Children under 7 travel free of charge.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 mb-4" data-aos="fade-up">
+        <div class="section-title">Tashkent Metro Lines</div>
+        <div class="section-subtitle">Official 4-corridor rapid transit network spanning 50 operational stations.</div>
+
+        <div class="row g-3">
+          <div class="col-12 col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="metro-line-card" data-line="chilonzor">
+              <div>
+                <div class="line-card-header">
+                  <div class="line-card-title">
+                    <span class="color-dot dot-chl"></span>Chilonzor Line
+                  </div>
+                  <span class="line-station-badge">17 Bekat</span>
+                </div>
+                <div class="line-card-terminals">
+                  <div class="text-white fw-semibold">Buyuk Ipak Yo'li ↔ Qipchoq</div>
+                  <div class="small mt-1">Cross-city arterial corridor connecting east to southwest.</div>
+                </div>
+              </div>
+              <div class="line-stats-row">
+                <span><i class="fa-regular fa-clock me-1"></i>05:00 – 00:00</span>
+                <span><i class="fa-solid fa-gauge-simple-high me-1"></i>3–4 min</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="metro-line-card" data-line="ozbekiston">
+              <div>
+                <div class="line-card-header">
+                  <div class="line-card-title">
+                    <span class="color-dot dot-uzb"></span>Oʻzbekiston Line
+                  </div>
+                  <span class="line-station-badge">11 Bekat</span>
+                </div>
+                <div class="line-card-terminals">
+                  <div class="text-white fw-semibold">Beruniy ↔ Do'stlik</div>
+                  <div class="small mt-1">Direct link connecting historic Chorsu and Central Railway.</div>
+                </div>
+              </div>
+              <div class="line-stats-row">
+                <span><i class="fa-regular fa-clock me-1"></i>05:00 – 00:00</span>
+                <span><i class="fa-solid fa-gauge-simple-high me-1"></i>4–5 min</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="300">
+            <div class="metro-line-card" data-line="yunusobod">
+              <div>
+                <div class="line-card-header">
+                  <div class="line-card-title">
+                    <span class="color-dot dot-yun"></span>Yunusobod Line
+                  </div>
+                  <span class="line-station-badge">8 Bekat</span>
+                </div>
+                <div class="line-card-terminals">
+                  <div class="text-white fw-semibold">Turkiston ↔ Ming Oʻrik</div>
+                  <div class="small mt-1">North-south corridor serving TV Tower, Expo, and Minor.</div>
+                </div>
+              </div>
+              <div class="line-stats-row">
+                <span><i class="fa-regular fa-clock me-1"></i>05:00 – 00:00</span>
+                <span><i class="fa-solid fa-gauge-simple-high me-1"></i>5–6 min</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="400">
+            <div class="metro-line-card" data-line="halqa">
+              <div>
+                <div class="line-card-header">
+                  <div class="line-card-title">
+                    <span class="color-dot dot-hlq"></span>Halqa (Circle) Line
+                  </div>
+                  <span class="line-station-badge">14 Bekat</span>
+                </div>
+                <div class="line-card-terminals">
+                  <div class="text-white fw-semibold">Texnopark ↔ Qipchoq</div>
+                  <div class="small mt-1">Elevated outer orbital line connecting south-east districts.</div>
+                </div>
+              </div>
+              <div class="line-stats-row">
+                <span><i class="fa-regular fa-clock me-1"></i>05:00 – 23:00</span>
+                <span><i class="fa-solid fa-gauge-simple-high me-1"></i>7–8 min</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 mb-4" data-aos="fade-up">
+        <div class="section-title">Major Transfer Hubs &amp; Interchanges</div>
+        <div class="section-subtitle">Walkway pedestrian links between intersecting lines (free transfer within stations).</div>
+
+        <div class="row g-3">
+          <div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="transfer-hub-card">
+              <div class="hub-stations-pair">
+                <span class="hub-station-badge">
+                  <span class="color-dot dot-chl"></span>Amir Temur
+                </span>
+                <i class="fa-solid fa-arrows-left-right text-info"></i>
+                <span class="hub-station-badge">
+                  <span class="color-dot dot-yun"></span>Yunus Rajabiy
+                </span>
+              </div>
+              <div class="small text-secondary mb-3">Connecting Chilonzor Line with Yunusobod Line at the heart of Tashkent.</div>
+              <span class="hub-walk-pill"><i class="fa-regular fa-clock me-1"></i>2 min transfer walkway</span>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="transfer-hub-card">
+              <div class="hub-stations-pair">
+                <span class="hub-station-badge">
+                  <span class="color-dot dot-chl"></span>Paxtakor
+                </span>
+                <i class="fa-solid fa-arrows-left-right text-info"></i>
+                <span class="hub-station-badge">
+                  <span class="color-dot dot-uzb"></span>Alisher Navoiy
+                </span>
+              </div>
+              <div class="small text-secondary mb-3">Connecting Chilonzor Line with Oʻzbekiston Line near Pakhtakor Stadium.</div>
+              <span class="hub-walk-pill"><i class="fa-regular fa-clock me-1"></i>3 min underground passage</span>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="transfer-hub-card">
+              <div class="hub-stations-pair">
+                <span class="hub-station-badge">
+                  <span class="color-dot dot-uzb"></span>Oybek
+                </span>
+                <i class="fa-solid fa-arrows-left-right text-info"></i>
+                <span class="hub-station-badge">
+                  <span class="color-dot dot-yun"></span>Ming Oʻrik
+                </span>
+              </div>
+              <div class="small text-secondary mb-3">Connecting Oʻzbekiston Line with Yunusobod Line southern terminus.</div>
+              <span class="hub-walk-pill"><i class="fa-regular fa-clock me-1"></i>2 min direct concourse</span>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="transfer-hub-card">
+              <div class="hub-stations-pair">
+                <span class="hub-station-badge">
+                  <span class="color-dot dot-uzb"></span>Doʻstlik
+                </span>
+                <i class="fa-solid fa-arrows-left-right text-info"></i>
+                <span class="hub-station-badge">
+                  <span class="color-dot dot-hlq"></span>Texnopark
+                </span>
+              </div>
+              <div class="small text-secondary mb-3">Transfer from underground Oʻzbekiston Line to elevated Halqa Line.</div>
+              <span class="hub-walk-pill"><i class="fa-regular fa-clock me-1"></i>3 min covered escalator link</span>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="transfer-hub-card">
+              <div class="hub-stations-pair">
+                <span class="hub-station-badge">
+                  <span class="color-dot dot-chl"></span>Qipchoq (Chinor)
+                </span>
+                <i class="fa-solid fa-arrows-left-right text-info"></i>
+                <span class="hub-station-badge">
+                  <span class="color-dot dot-hlq"></span>Qipchoq (14-Bekat)
+                </span>
+              </div>
+              <div class="small text-secondary mb-3">Southwestern interchange connecting Chilonzor Line and Halqa Circle Line.</div>
+              <span class="hub-walk-pill"><i class="fa-regular fa-clock me-1"></i>2 min surface cross-platform</span>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="transfer-hub-card">
+              <div class="hub-stations-pair">
+                <span class="hub-station-badge">
+                  <span class="color-dot dot-uzb"></span>Toshkent Vokzal
+                </span>
+                <i class="fa-solid fa-train text-info"></i>
+                <span class="hub-station-badge">
+                  <span class="color-dot dot-all"></span>Afrosiyob Train
+                </span>
+              </div>
+              <div class="small text-secondary mb-3">Direct concourse from Metro Toshkent to High-Speed Rail &amp; Regional trains.</div>
+              <span class="hub-walk-pill"><i class="fa-regular fa-clock me-1"></i>3 min station forecourt walk</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5 mb-4" data-aos="fade-up">
+        <div class="section-title">Key Bus &amp; Express Connections</div>
+        <div class="section-subtitle">High-frequency municipal bus lines linking Tashkent transit terminals, airport, and bazaars.</div>
+
+        <div class="row g-3">
+          <div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="corridor-card">
+              <div class="corridor-header">
+                <div class="corridor-icon-badge">
+                  <i class="fa-solid fa-plane-departure"></i>
+                </div>
+                <div>
+                  <div class="corridor-title">Tashkent International Airport (TAS)</div>
+                  <div class="small text-secondary">Terminals 2 &amp; 3 (Domestic &amp; International)</div>
+                </div>
+              </div>
+              <div class="corridor-desc">
+                Direct public transit access from city center and metro stations to Islam Karimov Airport.
+              </div>
+              <div class="bus-tags-group justify-content-start">
+                <span class="bus-pill">Bus 11</span>
+                <span class="bus-pill">Bus 40</span>
+                <span class="bus-pill express">Bus 58 (Kosmonavtlar)</span>
+                <span class="bus-pill">Bus 67</span>
+                <span class="bus-pill">Bus 76</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="corridor-card">
+              <div class="corridor-header">
+                <div class="corridor-icon-badge">
+                  <i class="fa-solid fa-train"></i>
+                </div>
+                <div>
+                  <div class="corridor-title">Northern Railway Station (Markaziy Vokzal)</div>
+                  <div class="small text-secondary">High-speed Afrosiyob &amp; Intercity Hub</div>
+                </div>
+              </div>
+              <div class="corridor-desc">
+                Main rail terminal connected directly via underground passage to Metro Toshkent station.
+              </div>
+              <div class="bus-tags-group justify-content-start">
+                <span class="bus-pill">Bus 12</span>
+                <span class="bus-pill">Bus 22</span>
+                <span class="bus-pill">Bus 26</span>
+                <span class="bus-pill">Bus 60</span>
+                <span class="bus-pill">Bus 91</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="corridor-card">
+              <div class="corridor-header">
+                <div class="corridor-icon-badge">
+                  <i class="fa-solid fa-store"></i>
+                </div>
+                <div>
+                  <div class="corridor-title">Chorsu Bazaar &amp; Old City Center</div>
+                  <div class="small text-secondary">Historical Market &amp; Transit Junction</div>
+                </div>
+              </div>
+              <div class="corridor-desc">
+                High-volume transfer point connecting western Tashkent residential corridors with metro.
+              </div>
+              <div class="bus-tags-group justify-content-start">
+                <span class="bus-pill express">Express E1</span>
+                <span class="bus-pill">Bus 11</span>
+                <span class="bus-pill">Bus 35</span>
+                <span class="bus-pill">Bus 42</span>
+                <span class="bus-pill">Bus 46</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="metro-train-tail-footer">
+    <div class="tail-livery-stripe"></div>
+    <div class="tail-cabin-chassis container-fluid px-3 px-lg-4">
+      <div class="train-headlight-cluster">
+        <div class="train-headlight-housing">
+          <div class="train-lens lens-tail"></div>
+        </div>
+      </div>
+
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 text-center text-md-start flex-grow-1 px-3">
+        <div>
+          <div class="fw-bold text-white" style="font-family: var(--font-display); font-size: 0.95rem;">
+            BEKAT-9 — Toshkent Public Transport Guide
+          </div>
+          <div class="small text-secondary">
+            Tashkent Metro operates daily from 05:00 to 00:00 &bull; ATTO Contactless Transit Fare: 2,000 UZS
+          </div>
+        </div>
+
+        <button type="button" class="btn-back-to-top" id="backToTopBtn">
+          <i class="fa-solid fa-arrow-up"></i>Back to Top
+        </button>
+      </div>
+
+      <div class="train-headlight-cluster">
+        <div class="train-headlight-housing">
+          <div class="train-lens lens-tail"></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
