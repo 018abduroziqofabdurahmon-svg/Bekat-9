@@ -1,12 +1,12 @@
 # BEKAT-9 — Toshkent Metro & Public Transport Guide
 
-A responsive, single-page web application and interactive guide for the **Tashkent Metro and Public Transport Network** (Toshkent Metropoliteni). Built with modern HTML5, CSS3, vanilla JavaScript, and skeuomorphic glassmorphic design inspired by modern rolling stock and station hardware.
+A responsive, single-page web application and interactive guide for the **Tashkent Metro and Public Transport Network** (Toshkent Metropoliteni). Built with **100% pure HTML5 and modern CSS3** (zero JavaScript), featuring skeuomorphic glassmorphic design inspired by modern rolling stock and station hardware.
 
 ---
 
 ## Overview
 
-**BEKAT-9** provides residents and visitors of Tashkent with a fast, real-time public transit companion. It features an instant station search directory across all 4 operational metro lines, connecting bus route lookups, transfer hub guides, an interactive ATTO fare calculator with turnstile audio simulation, and live line overviews.
+**BEKAT-9** provides residents and visitors of Tashkent with a fast public transit companion. It features an instant station directory across all 4 operational metro lines, connecting bus route lookups, transfer hub guides, an interactive pure CSS ATTO fare calculator with turnstile simulation, pure CSS line filters, and live line overviews.
 
 ---
 
@@ -14,30 +14,29 @@ A responsive, single-page web application and interactive guide for the **Tashke
 
 ### 1. Modern Metro Train Cabin Navbar
 - Styled after the aerodynamic front cabin and windshield of a modern Tashkent Metro train.
-- **Dynamic Livery Accent Stripe**: Dynamically transitions its glowing color (Red, Blue, Green, Yellow, or Cyan) based on the currently selected metro line.
-- **Integrated Cockpit Controls**: Includes glowing LED headlights, a live digital Tashkent time clock (`Asia/Tashkent`), and a light mode toggle.
+- **Dynamic Livery Accent Stripe**: Dynamically transitions its glowing color (Red, Blue, Green, Yellow, or Cyan) in pure CSS based on the currently selected metro line.
+- **Integrated Cockpit Controls**: Includes glowing LED headlights, operating transit schedule HUD (`05:00 – 00:00 Daily • Tashkent`), and a pure CSS Light Mode toggle.
 
 ### 2. Full-Screen Cinematic Video Hero
 - Immersive `100vh` full-screen video background (`assets/metro-hero.mp4`) with a dark gradient overlay.
-- Centered static hero typography and tactile frosted-glass CTA buttons (`Explore Stations` and `Calculate Fare`) that smoothly scroll to key modules.
+- Centered static hero typography and tactile frosted-glass CTA buttons (`Explore Stations` and `Calculate Fare`) with native smooth scrolling.
 
-### 3. Real-Time Station Search & Bus Connections
-- **Instant Search**: Filter across 50+ stations by name, line, or connecting city bus route numbers.
-- **Quick Filters**: Toggle between *All Stations*, *Transfer Hubs*, and *Bus Connections*.
-- **Station Cards**: Display station name, line color badge, transfer interchange links, and clickable connecting bus pills.
+### 3. All 50 Metro Stations & Bus Feeder Directory
+- Complete native HTML directory covering all 50 operational stations across Tashkent:
+  - **Chilonzor Line (Red)**: 17 stations
+  - **Oʻzbekiston Line (Blue)**: 11 stations
+  - **Yunusobod Line (Green)**: 8 stations
+  - **Halqa / Circle Line (Yellow)**: 14 stations
+- Station cards display line color dots, transfer interchanges, and connecting municipal bus badges.
 
-### 4. Interactive ATTO Fare Calculator & Turnstile Simulator
-- **Fare Presets**: Standard ATTO Card (2,000 UZS), Student / Pensioner Discount (1,000 UZS), and Multi-Ride passes.
-- **Passenger Stepper**: Increment or decrement riders (1–50) with animated real-time total computation.
-- **Turnstile Simulator**: Click "Tap ATTO Card" to trigger an interactive Web Audio API synthesized entry chime and turnstile clearance visual indicator.
+### 4. Pure CSS Line & Quick Filters
+- **Zero-JS State Engine**: Uses modern CSS `:has()` pseudo-class with radio inputs to instantly filter stations by transit line (*All Lines*, *Chilonzor*, *Oʻzbekiston*, *Yunusobod*, *Halqa*).
+- **Quick Filters**: Instant pure CSS filtering for *All Stations*, *Transfer Hubs*, *Airport Bus (58)*, and *Express Lines*.
+- **Interactive Overview Cards**: Clicking any line overview card automatically activates that line's filter in pure CSS.
 
-### 5. Interactive Metro Lines Directory
-- Comprehensive 4-column overview of all operational lines:
-  - **Chilonzor Line (Red)**: 17 stations &bull; 23.7 km &bull; 3–5 min interval
-  - **Oʻzbekiston Line (Blue)**: 11 stations &bull; 14.3 km &bull; 4–6 min interval
-  - **Yunusobod Line (Green)**: 8 stations &bull; 10.5 km &bull; 5–8 min interval
-  - **Halqa / Circle Line (Yellow)**: 14 stations &bull; 18.0 km &bull; 8–10 min interval
-- Clicking any line overview card automatically filters the station directory.
+### 5. Interactive ATTO Fare Calculator & Turnstile Simulator
+- **Fare Tariff Selection**: Choose between Standard ATTO Card (2,000 UZS), Student & Pensioner Privilege (1,000 UZS), and Single-Ride Paper QR (3,000 UZS).
+- **Turnstile Simulator**: Tactile "Tap ATTO Turnstile" button with interactive `:active` and `:focus` states providing visual entry clearance.
 
 ### 6. Major Transfer Hubs & Interchanges
 - Visual transfer cards highlighting Tashkent's core subway transfer nodes:
@@ -49,9 +48,8 @@ A responsive, single-page web application and interactive guide for the **Tashke
 
 ### 7. Key Bus Corridors & Airport / Railway Links
 - Quick-reference cards for major transit gates:
-  - **Tashkent International Airport** (Buses 11, 40, 67, 77)
-  - **Northern Railway Station (Toshkent Markaziy Vokzali)** (Buses 12, 22, 26, 40, 60, 91)
-  - **Southern Railway Station (Janubiy Vokzal)** (Buses 38, 70, 84, 118)
+  - **Tashkent International Airport** (Buses 11, 40, 67, 76)
+  - **Northern Railway Station (Toshkent Markaziy Vokzali)** (Buses 12, 22, 26, 60, 91)
   - **Chorsu Bazaar & Old City Hub** (Buses 11, 35, 42, 46, E1 Express)
 
 ### 8. Metro Train Tail-Light Footer
@@ -62,21 +60,19 @@ A responsive, single-page web application and interactive guide for the **Tashke
 ## Design System
 
 - **Obsidian Dark Glassmorphism**: Pure black `#000000` base with frosted glass panels (`backdrop-filter: blur(16px)`, `rgba(255, 255, 255, 0.05)`).
+- **Pure CSS Light Mode**: Clean silver/white titanium theme activated via `:has(#themeModeToggle:checked)`.
 - **Tactile Skeuomorphism**: Beveled buttons with realistic `:active` depress offsets, physical toggle switches, and glowing LED status lamps.
-- **Crisp High-Contrast Typography**: System UI font stack with `#ffffff` headlines and `#a1a1aa` / `#cbd5e1` high-contrast sub-labels.
-- **Web Audio API**: Real-time synthetic multi-oscillator transit chimes without requiring external audio files.
+- **Pure CSS Ambient Particles**: 60fps GPU-accelerated particle telemetry grid without external scripts.
 
 ---
 
-## Tech Stack & CDN Dependencies
+## Tech Stack
 
-- **HTML5** &bull; Semantic structure, responsive video background, accessibility tags.
-- **CSS3** &bull; Custom CSS variables, flexbox/grid layout, hardware-accelerated animations, glassmorphism filters.
-- **JavaScript (ES6+)** &bull; Pure vanilla JS, event-driven search filtering, Web Audio API synthesis.
-- **Bootstrap 5.3.3** (CDN) &bull; Responsive layout grid and utility classes.
+- **HTML5** &bull; 100% semantic structure, pure HTML state management, responsive video background.
+- **CSS3** &bull; Modern CSS `:has()` pseudo-class selectors, CSS custom properties, flexbox/grid layout, smooth scroll.
+- **Bootstrap 5.3.3 CSS** (CDN) &bull; Responsive layout grid and utility classes (CSS-only).
 - **Font Awesome 6.5.1** (CDN) &bull; Transit, subway, bus, clock, and UI icons.
-- **AOS (Animate On Scroll) 2.3.4** (CDN) &bull; Scroll-reveal entrance animations.
-- **particles.js 2.0.0** (CDN) &bull; Ambient telemetry background particle field.
+- **Zero JavaScript** &bull; Completely free of client-side scripts for maximum speed, security, and battery efficiency.
 
 ---
 
@@ -86,9 +82,8 @@ A responsive, single-page web application and interactive guide for the **Tashke
 bekat-9/
 ├── assets/
 │   └── metro-hero.mp4      # Background video loop for hero section
-├── index.html              # Main single-page application structure
-├── style.css               # Complete stylesheet & glassmorphic design system
-├── script.js               # Application logic, metro data, search & audio synthesis
+├── index.html              # 100% pure HTML application structure (50 stations)
+├── style.css               # Complete stylesheet, pure CSS filters & light mode
 ├── train.mp4               # Source video asset
 └── README.md               # Project documentation
 ```
@@ -98,7 +93,7 @@ bekat-9/
 ## Getting Started
 
 ### Prerequisites
-No build steps, package managers, or compilers are required. You only need a modern web browser.
+No build steps, package managers, node modules, or compilers are required.
 
 ### Quick Run
 1. Clone or download the repository:
@@ -112,13 +107,9 @@ No build steps, package managers, or compilers are required. You only need a mod
      ```powershell
      Start-Process index.html
      ```
-   - Using a local HTTP server (recommended for optimal video streaming & audio policy):
+   - Using a local HTTP server:
      ```bash
-     # Using Python 3
      python -m http.server 8080
-
-     # Using Node.js (npx)
-     npx serve .
      ```
 3. Open your browser and navigate to `http://localhost:8080`.
 
